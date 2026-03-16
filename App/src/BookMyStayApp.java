@@ -1,27 +1,18 @@
-
 public class BookMyStayApp {
 
     public static void main(String[] args) {
 
-        // Creating room objects
-        Room singleRoom = new SingleRoom();
-        Room doubleRoom = new DoubleRoom();
+        BookingRequestQueue bookingQueue = new BookingRequestQueue();
 
-        // Static availability variables
-        int singleRoomAvailable = 5;
-        int doubleRoomAvailable = 3;
-        int suiteRoomAvailable = 2;
+        // Simulated guest booking requests
+        Reservation r1 = new Reservation("Aditya", "Single");
+        Reservation r2 = new Reservation("Rahul", "Double");
+        Reservation r3 = new Reservation("Priya", "Suite");
 
-        System.out.println("===== Room Details =====");
+        bookingQueue.addRequest(r1);
+        bookingQueue.addRequest(r2);
+        bookingQueue.addRequest(r3);
 
-        System.out.println("\nSingle Room:");
-        singleRoom.displayRoomDetails();
-        System.out.println("Available Rooms: " + singleRoomAvailable);
-
-        System.out.println("\nDouble Room:");
-        doubleRoom.displayRoomDetails();
-        System.out.println("Available Rooms: " + doubleRoomAvailable);
-
-        System.out.println("\nApplication Terminated.");
+        bookingQueue.showQueue();
     }
 }
