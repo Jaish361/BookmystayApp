@@ -1,27 +1,21 @@
-
 public class BookMyStayApp {
 
     public static void main(String[] args) {
 
-        // Creating room objects
-        Room singleRoom = new SingleRoom();
-        Room doubleRoom = new DoubleRoom();
+        // Initialize inventory
+        RoomInventory inventory = new RoomInventory();
 
-        // Static availability variables
-        int singleRoomAvailable = 5;
-        int doubleRoomAvailable = 3;
-        int suiteRoomAvailable = 2;
+        // Display available rooms
+        inventory.displayInventory();
 
-        System.out.println("===== Room Details =====");
+        // Example availability check
+        System.out.println("\nSingle Room Availability: " +
+                inventory.getAvailability("Single"));
 
-        System.out.println("\nSingle Room:");
-        singleRoom.displayRoomDetails();
-        System.out.println("Available Rooms: " + singleRoomAvailable);
+        // Update inventory
+        inventory.updateAvailability("Single", 4);
 
-        System.out.println("\nDouble Room:");
-        doubleRoom.displayRoomDetails();
-        System.out.println("Available Rooms: " + doubleRoomAvailable);
-
-        System.out.println("\nApplication Terminated.");
+        System.out.println("\nInventory After Update:");
+        inventory.displayInventory();
     }
 }
